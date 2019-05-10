@@ -7,6 +7,7 @@ Created on Fri May  3 10:40:06 2019
 """
 
 import mysql.connector
+import pandas as pd
 
 cnx = mysql.connector.connect(
                             user = 'NillanShah',
@@ -19,7 +20,9 @@ cnx = mysql.connector.connect(
 cursor = cnx.cursor()
 
 #Example select statement
-selectStatement = ('SELECT * FROM SasquatchDB.tbl_process')
+#selectStatement = ('SELECT * FROM SasquatchDB.tbl_process')
+df = pd.read_sql('SELECT * FROM SasquatchDB.tbl_process', con=cnx)
+
 
 cursor.execute(selectStatement)
 
